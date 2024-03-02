@@ -4,6 +4,7 @@ const $ = new Env(ScriptName);
 const res = $request;
 const resp = isUndefined($response) ? null : $response;
 
+const clientVersion = "2.0.0.0";
 const defaultSkinList = ['vip', 'default']
 
 initScript()
@@ -35,7 +36,7 @@ function initScript() {
 }
 
 function getAllSkinList(headers, callback) {
-    const body = '{"type":7}';
+    const body = `{"type":28,"clientVersion":"${clientVersion}"}`;
     const option = {
         url: `https://moodji.api.flowzland.com//moodjiallinone/v1/getskinlist`,
         headers: headers,
