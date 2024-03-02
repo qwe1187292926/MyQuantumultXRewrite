@@ -1,0 +1,79 @@
+﻿{
+  "skinInfoList" : [
+    {
+      "productId" : "product.moodji.skin.dog",
+      "skinNameEn" : "Puppy Daily",
+      "description" : "龙年限定",
+      "version" : "2.0.0.5",
+      "previewUrl" : "https://cdn.flowzland.com/previews/1/44972599-868c-48b3-92cb-06cf5091f945.png",
+      "descriptionEn" : "Dragon Year Limited",
+      "descriptionZhTw" : "龍年限定",
+      "type" : 16,
+      "skinId" : "dog",
+      "skinName" : "小狗日常",
+      "order" : 0,
+      "skinNameZhTw" : "小狗日常",
+      "downloadUrl" : "https://cdn.flowzland.com/skins/1/c9b2fee1-8055-4823-aee5-a686a9944856.zip"
+    },
+    {
+      "productId" : "product.moodji.skin.capybara",
+      "skinNameEn" : "Capybara",
+      "description" : "龙年限定",
+      "version" : "2.0.0.5",
+      "previewUrl" : "https://cdn.flowzland.com/previews/1/780886fe-2b5a-44b8-bfcd-68424ebc760d.png",
+      "descriptionEn" : "Dragon Year Limited",
+      "descriptionZhTw" : "龍年限定",
+      "type" : 16,
+      "skinId" : "capybara",
+      "skinName" : "卡皮巴拉",
+      "order" : 0,
+      "skinNameZhTw" : "卡皮巴拉",
+      "downloadUrl" : "https://cdn.flowzland.com/skins/1/83e0042e-8037-475c-b098-ce078413a5a5.zip"
+    },
+    {
+      "productId" : "product.moodji.skin.dragon",
+      "skinNameEn" : "Lucky Loong",
+      "description" : "好运龙年",
+      "version" : "2.0.0.2",
+      "previewUrl" : "https://cdn.flowzland.com/image_dragon.png",
+      "descriptionEn" : "Lucky Loong",
+      "descriptionZhTw" : "好運龍年",
+      "type" : 16,
+      "skinId" : "dragon",
+      "skinName" : "好运龙年",
+      "order" : 0,
+      "skinNameZhTw" : "好運龍年",
+      "downloadUrl" : "https://cdn.flowzland.com/skins/1/aa1ea71e-4998-46b6-970e-91c2a7ee85c7.zip"
+    },
+    {
+      "productId" : "product.moodji.skin.default",
+      "skinNameEn" : "Cute Kitty",
+      "description" : "默认皮肤",
+      "version" : "2.0.0.6",
+      "previewUrl" : "https://cdn.flowzland.com/previews/1/eea7bac5-ae47-4d58-b6bd-45c72c99c805.png",
+      "descriptionEn" : "Default Skin",
+      "descriptionZhTw" : "默認皮膚",
+      "type" : 4,
+      "skinId" : "default",
+      "skinName" : "可爱猫猫",
+      "order" : 0,
+      "skinNameZhTw" : "可愛貓貓",
+      "downloadUrl" : "https://cdn.flowzland.com/skins/1/5e42e589-3832-4f4a-a5a1-e4ccb61248c9.zip"
+    },
+    {
+      "productId" : "product.moodji.skin.vip",
+      "skinNameEn" : "Lazy Pig",
+      "description" : "PLUS专享",
+      "version" : "2.0.0.11",
+      "previewUrl" : "https://cdn.flowzland.com/previews/1/f0a7bac5-ae47-4d58-b6bd-45c72c99c805.png",
+      "descriptionEn" : "PLUS Exclusive",
+      "descriptionZhTw" : "PLUS專享",
+      "type" : 8,
+      "skinId" : "vip",
+      "skinName" : "慵懒猪猪",
+      "order" : 0,
+      "skinNameZhTw" : "慵懶豬豬",
+      "downloadUrl" : "https://cdn.flowzland.com/skins/1/26634cde-56d1-422e-bf8b-27308f661e43.zip"
+    }
+  ]
+}

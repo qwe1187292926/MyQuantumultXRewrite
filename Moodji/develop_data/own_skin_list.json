@@ -1,0 +1,23 @@
+﻿{
+  "products" : [
+    {
+      "seed" : "",
+      "count" : 1,
+      "productId" : "dog",
+      "type" : 2,
+      "expireTime" : 2524607999
+    },{
+      "seed" : "",
+      "count" : 1,
+      "productId" : "capybara",
+      "type" : 2,
+      "expireTime" : 2524607999
+    },{
+      "seed" : "",
+      "count" : 1,
+      "productId" : "dragon",
+      "type" : 2,
+      "expireTime" : 2524607999
+    }
+  ]
+}
