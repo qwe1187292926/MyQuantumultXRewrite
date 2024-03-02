@@ -1,10 +1,26 @@
-const ScriptName = "Moodji获取全皮肤";
+/*
+Moodji获取全皮肤 v1.0
+Moodji all skin patch v1.0
+by Hoyoung
+date 2024-3-2
+Thanks @Small script
+
+QX:
+^https?:\/\/moodji.api.flowzland.com\/\/moodjiallinone\/v1\/getownproductlist url script-response-body https://raw.githubusercontent.com/qwe1187292926/MyQuantumultXRewrite/feture-moodji-20240302/Moodji/skin.js
+
+Surge4 (我没有Surge4，所以不确定下面是否能正常使用) (I'm not sure if it doesn't work, I don't have a Surge4 account):
+http-response ^https?:\/\/moodji.api.flowzland.com\/\/moodjiallinone\/v1\/getownproductlist requires-body=1,script-path=https://raw.githubusercontent.com/qwe1187292926/MyQuantumultXRewrite/feture-moodji-20240302/Moodji/skin.js
+
+Surge & QX MITM = moodji.api.flowzland.com
+*/
+const ScriptName = "Moodji获取全皮肤 v1.0";
 const $ = new Env(ScriptName);
 
 const res = $request;
 const resp = isUndefined($response) ? null : $response;
 
-const clientVersion = "2.0.0.0";
+// 获取皮肤列表的客户端参数
+const clientVersion = "2.0.0.0", skinType = 28;
 const defaultSkinList = ['vip', 'default']
 
 initScript()
@@ -25,8 +41,8 @@ function initScript() {
                     products.push(skin);
                 }
             }
-            $.log(`获取皮肤列表成功, 共${products.length}个皮肤`)
-            $.log(`皮肤列表: ${JSON.stringify(products)}`)
+            //$.log(`获取皮肤列表成功, 共${products.length}个皮肤`)
+            //$.log(`皮肤列表: ${JSON.stringify(products)}`)
             let body = {products}
             $.done({body: JSON.stringify(body)});
         } else {
@@ -36,7 +52,7 @@ function initScript() {
 }
 
 function getAllSkinList(headers, callback) {
-    const body = `{"type":28,"clientVersion":"${clientVersion}"}`;
+    const body = `{"type":${skinType},"clientVersion":"${clientVersion}"}`;
     const option = {
         url: `https://moodji.api.flowzland.com//moodjiallinone/v1/getskinlist`,
         headers: headers,
@@ -64,7 +80,7 @@ function getAllSkinList(headers, callback) {
         }
 
         if (!result.success) {
-            $.log(`Error:${JSON.stringify(result)}`);
+            //$.log(`Error:${JSON.stringify(result)}`);
             $.msg("Error", result.msg, err);
         }
 
