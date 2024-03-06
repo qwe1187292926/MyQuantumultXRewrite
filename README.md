@@ -25,3 +25,5 @@ MITM = moodji.api.flowzland.com
 
 Finally, clear the cache, restart the software, and then open Moodji, you will find that the skin list has updated.
 
+如果你喜欢我的工作，请给我Star呜呜呜。 If you like my work, I will be appreciated to have your star!
+
