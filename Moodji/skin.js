@@ -64,7 +64,8 @@ function initScript() {
             }
             $.log(`获取皮肤列表成功, 共${products.length}个皮肤`)
             body.products = products
-            // $.setdata(String(savedSkinList), `${ScriptIdentifier}_own_skin_id_list`)
+
+            $.setdata(String(['vip', 'default']), `${ScriptIdentifier}_own_skin_id_list`)
             if (noticeCount > 0) {
                 $.msg(`此次额外为你获取${noticeCount}个皮肤`, "", noticeSkin.substring(0, noticeSkin.length - 1))
             }
