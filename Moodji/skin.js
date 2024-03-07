@@ -14,6 +14,7 @@ http-response ^https?:\/\/moodji.api.flowzland.com\/\/moodjiallinone\/v1\/getown
 Surge & QX MITM = moodji.api.flowzland.com
 */
 const ScriptName = "Moodji获取全皮肤 v1.0";
+const ScriptIdentifier = "moodji_patch";
 const $ = new Env(ScriptName);
 
 const res = $request;
@@ -21,16 +22,33 @@ const resp = isUndefined($response) ? null : $response;
 
 // 获取皮肤列表的客户端参数
 const clientVersion = "2.0.0.0", skinType = 28;
-const defaultSkinList = ['vip', 'default']
+let ownSkinList = ['vip', 'default']
 
 initScript()
 
 function initScript() {
+    let body = JSON.parse(resp.body), products = body.products;
+
+    let savedSkinList = $.getdata(`${ScriptIdentifier}_own_skin_id_list`)
+    $.log("savedSkinList->[" + savedSkinList + ']')
+    if (savedSkinList === '') {
+        $.log("上次保存皮肤为空，开始获取皮肤信息")
+        for (let i = 0; i < products.length; i++) {
+            if (!ownSkinList.includes(products[i].productId)) {
+                ownSkinList.push(products[i].productId);
+            }
+        }
+        savedSkinList = ownSkinList
+        $.log("当前皮肤信息{}", JSON.stringify(ownSkinList))
+    } else {
+        ownSkinList = JSON.parse(savedSkinList)
+        savedSkinList = JSON.parse(savedSkinList)
+    }
+    let noticeCount = 0, noticeSkin = '';
     getAllSkinList(res.headers, (result) => {
-        let products = [];
         if (result.success) {
             for (let i = 0; i < result.data.length; i++) {
-                if (!defaultSkinList.includes(result.data[i].skinId)) {
+                if (!ownSkinList.includes(result.data[i].skinId)) {
                     let skin = {
                         seed: "",
                         count: 1,
@@ -39,11 +57,18 @@ function initScript() {
                         expireTime: 2524607999
                     }
                     products.push(skin);
+                    noticeCount++;
+                    noticeSkin += result.data[i].skinName + "|"
+                    savedSkinList.push(result.data[i].skinId)
                 }
             }
             //$.log(`获取皮肤列表成功, 共${products.length}个皮肤`)
             //$.log(`皮肤列表: ${JSON.stringify(products)}`)
-            let body = {products}
+            body.products = {products}
+            // $.setdata(String(savedSkinList), `${ScriptIdentifier}_own_skin_id_list`)
+            if (noticeCount > 0) {
+                $.msg(`此次额外为你获取${noticeCount}个皮肤`, noticeSkin.split("|").join("、"), "qwq")
+            }
             $.done({body: JSON.stringify(body)});
         } else {
             $.done({body: JSON.stringify(resp)});
