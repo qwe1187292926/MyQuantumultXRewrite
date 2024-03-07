@@ -45,7 +45,7 @@ function initScript() {
             ownSkinList = JSON.parse(savedSkinList)
             savedSkinList = JSON.parse(savedSkinList)
         } catch (e) {
-            $.setdata("", $.getdata(`${ScriptIdentifier}_own_skin_id_list`))
+            $.setdata("", `${ScriptIdentifier}_own_skin_id_list`)
             $.logErr(e)
         }
     }
@@ -67,6 +67,7 @@ function initScript() {
                     savedSkinList.push(result.data[i].skinId)
                 }
             }
+            noticeSkin = noticeSkin.substring(0, noticeSkin.length - 1)
             $.log(`获取皮肤列表成功, 共${products.length}个皮肤`)
             body.products = products
             let tmp = ['vip', 'default']
