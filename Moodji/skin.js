@@ -46,7 +46,7 @@ function initScript() {
             savedSkinList = JSON.parse(savedSkinList)
         } catch (e) {
             $.setdata("", $.getdata(`${ScriptIdentifier}_own_skin_id_list`))
-            $.logErr(t)
+            $.logErr(e)
         }
     }
     let noticeCount = 0, noticeSkin = '';
