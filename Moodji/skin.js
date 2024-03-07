@@ -31,7 +31,7 @@ function initScript() {
 
     let savedSkinList = $.getdata(`${ScriptIdentifier}_own_skin_id_list`)
     $.log("savedSkinList->[" + savedSkinList + ']')
-    if (savedSkinList === '') {
+    if ( ('undefined' == typeof savedSkinList) || savedSkinList === '') {
         $.log("上次保存皮肤为空，开始获取皮肤信息")
         for (let i = 0; i < products.length; i++) {
             if (!ownSkinList.includes(products[i].productId)) {
