@@ -112,7 +112,7 @@ function getAllSkinList(headers, callback) {
         }
 
         if (!result.success) {
-            //$.log(`Error:${JSON.stringify(result)}`);
+            $.log(`Error:${JSON.stringify(result)}`);
             $.msg("Error", result.msg, err);
         }
 
