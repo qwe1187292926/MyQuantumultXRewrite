@@ -70,6 +70,7 @@ function initScript() {
             $.log(`获取皮肤列表成功, 共${products.length}个皮肤`)
             body.products = products
             let tmp = ['vip', 'default']
+            $.log(`即将保存的皮肤列表${JSON.stringify(tmp)}` )
             $.setdata(JSON.stringify(tmp), `${ScriptIdentifier}_own_skin_id_list`)
             if (noticeCount > 0) {
                 $.msg(`此次额外为你获取${noticeCount}个皮肤`, "", noticeSkin.substring(0, noticeSkin.length - 1))
