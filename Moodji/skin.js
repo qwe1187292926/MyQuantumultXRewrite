@@ -42,7 +42,6 @@ function initScript() {
         $.log("当前皮肤信息{}", JSON.stringify(ownSkinList))
     } else {
         try {
-            ownSkinList = JSON.parse(savedSkinList)
             savedSkinList = JSON.parse(savedSkinList)
         } catch (e) {
             $.setdata("", `${ScriptIdentifier}_own_skin_id_list`)
@@ -62,9 +61,11 @@ function initScript() {
                         expireTime: 2524607999
                     }
                     products.push(skin);
-                    noticeCount++;
-                    noticeSkin += result.data[i].skinName + "、"
-                    savedSkinList.push(result.data[i].skinId)
+                    if(!savedSkinList.includes(result.data[i].skinId)){
+                        noticeCount++;
+                        noticeSkin += result.data[i].skinName + "、"
+                        savedSkinList.push(result.data[i].skinId)
+                    }
                 }
             }
             noticeSkin = noticeSkin.substring(0, noticeSkin.length - 1)
