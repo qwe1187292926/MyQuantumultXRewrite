@@ -1,29 +1,16 @@
-# MyQuantumultXRewrite
-Obtain Moodji skin patch, it will add more in future.
+<div align=center>    
+    <img src="https://avatars.githubusercontent.com/u/35908850" style="border-radius: 5%" width="150">    
+    <center><h1>My QuantumultX Rewrite</h1></center> 
+    <p>Obtain Moodji skin patch, it will add more in future.</p>
+    <a href="https://github.com/qwe1187292926/MyQuantumultXRewrite/tree/feture-moodji-20240302">
+        <img src="https://img.shields.io/badge/Moodiji%20skin%20patch%20v1.1-%20available%20-green" alt="Kongzue Dialog">
+    </a> 
+</div>
 
-## 如何使用 Moodji 全皮肤 / How to use Moodji skin patch
-首先你需要有 QuantumultX /Surge 其中之一，确定后跟随下面指引进行配置。
+## Moodji skin patch / Moodji 全皮肤破解
 
-First, you need to have QuantumultX / Surge, and then follow the instructions below to configure.
+🌐
+View [How to use Moodji skin patch](https://github.com/qwe1187292926/MyQuantumultXRewrite/blob/feture-moodji-20240302/README.md) | [如何使用 Moodji 全皮肤破解](https://github.com/qwe1187292926/MyQuantumultXRewrite/blob/feture-moodji-20240302/README.md)
 
-QX:
-```properties
-^https?:\/\/moodji.api.flowzland.com\/\/moodjiallinone\/v1\/getownproductlist url script-response-body https://raw.githubusercontent.com/qwe1187292926/MyQuantumultXRewrite/main/Moodji/skin.min.js
-```
 
-Surge4 (我没有Surge4，所以不确定下面是否能正常使用) (I'm not sure if it doesn't work, I don't have a Surge4 account):
-```properties
-http-response ^https?:\/\/moodji.api.flowzland.com\/\/moodjiallinone\/v1\/getownproductlist requires-body=1,script-path=https://raw.githubusercontent.com/qwe1187292926/MyQuantumultXRewrite/main/Moodji/skin.min.js
-```
-
-Surge & QX 
-```properties
-MITM = moodji.api.flowzland.com
-```
-
-最后，清除缓存，重启软件，然后打开 Moodji，你会发现皮肤列表会自动更新。
-
-Finally, clear the cache, restart the software, and then open Moodji, you will find that the skin list has updated.
-
-如果你喜欢我的工作，请给我Star呜呜呜。 If you like my work, I will be appreciated to have your star!
-
+### ***Other script are coming soon... / 其他脚本即将推出...***
