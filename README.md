@@ -7,6 +7,8 @@
     </a> 
 </div>
 
+#### If you favor this project, please give me a star. / 如果你喜欢这个项目，老铁请点亮小心心，求求你啦qwq
+
 ## Moodji skin patch / Moodji 全皮肤破解
 
 🌐
