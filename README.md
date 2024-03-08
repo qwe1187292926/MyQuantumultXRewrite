@@ -1,5 +1,11 @@
-# MyQuantumultXRewrite
-Obtain Moodji skin patch, it will add more in future.
+## 什么是Moodji？ / What's Moodji?
+Moodji是一款弱化数据，强调情绪的健康管理软件。其中用户可以参与新年活动获取最新的皮肤，但是由于活动的限时性，用户只能获取一部分皮肤，或者干脆没有参与过。Moodji全皮肤脚本就是为了解决这个问题而生，它可以让你轻松无损地获取目前所有的皮肤。
+
+Moodji is a health management software that weakens data and emphasizes emotions. Users can participate in the New Year's event to get the latest skin, but due to the limited time of the event, users can only get some skins, or they simply have not participated. This script is born to solve this problem, it can allow you to easily and losslessly obtain all the current skins.
+
+## 预览
+![image](https://github.com/qwe1187292926/MyQuantumultXRewrite/blob/feture-moodji-20240302/Moodji/readme/moodji_preview.png?raw=true)
+![image](https://raw.githubusercontent.com/qwe1187292926/MyQuantumultXRewrite/feture-moodji-20240302/Moodji/readme/moodji_skin.png)
 
 ## 如何使用 Moodji 全皮肤 / How to use Moodji skin patch
 首先你需要有 QuantumultX /Surge 其中之一，确定后跟随下面指引进行配置。
