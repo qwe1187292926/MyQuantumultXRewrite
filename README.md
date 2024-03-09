@@ -9,7 +9,7 @@
 
 #### If you favor this project, please give me a star. / 如果你喜欢这个项目，老铁请点亮小心心，求求你啦qwq
 
-## Moodji skin patch / Moodji 全皮肤破解
+## Moodji skin patch Guide/ Moodji 全皮肤破解 脚本使用指南
 
 🌐
 View [How to use Moodji skin patch](https://github.com/qwe1187292926/MyQuantumultXRewrite/blob/feture-moodji-20240302/README.md) | [如何使用 Moodji 全皮肤破解](https://github.com/qwe1187292926/MyQuantumultXRewrite/blob/feture-moodji-20240302/README.md)
