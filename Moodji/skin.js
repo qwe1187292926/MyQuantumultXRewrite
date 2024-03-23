@@ -27,14 +27,7 @@ let ownSkinList = ['vip', 'default']
 initScript()
 
 function initScript() {
-    let body = JSON.parse(resp.body), products = body.products;
-
-    if (products == undefined || products.length == undefined) {
-        $.log("列表为空，开始初始化列表")
-        body = JSON.parse("{\"products\":[]}")
-        products = body.products
-    }
-
+    let body = JSON.parse(resp.body), products = body.products || [];
 
     let savedSkinList = $.getdata(`${ScriptIdentifier}_own_skin_id_list`)
     $.log("savedSkinList->[" + savedSkinList + ']')
