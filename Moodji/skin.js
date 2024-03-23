@@ -29,7 +29,7 @@ initScript()
 function initScript() {
     let body = JSON.parse(resp.body), products = body.products;
 
-    if (products == undefined) {
+    if (products == undefined || products.length == undefined) {
         $.log("列表为空，开始初始化列表")
         body = JSON.parse("{\"products\":[]}")
         products = body.products
