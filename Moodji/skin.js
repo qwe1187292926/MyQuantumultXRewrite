@@ -33,9 +33,11 @@ function initScript() {
     $.log("savedSkinList->[" + savedSkinList + ']')
     if (('undefined' == typeof savedSkinList) || savedSkinList === '') {
         $.log("上次保存皮肤为空，开始获取皮肤信息")
-        for (let i = 0; i < products.length; i++) {
-            if (!ownSkinList.includes(products[i].productId)) {
-                ownSkinList.push(products[i].productId);
+        if (('undefined' !== typeof products) && ('undefined' !== typeof products.length)) {
+            for (let i = 0; i < products.length; i++) {
+                if (!ownSkinList.includes(products[i].productId)) {
+                    ownSkinList.push(products[i].productId);
+                }
             }
         }
         savedSkinList = ownSkinList
@@ -61,7 +63,7 @@ function initScript() {
                         expireTime: 2524607999
                     }
                     products.push(skin);
-                    if(!savedSkinList.includes(result.data[i].skinId)){
+                    if (!savedSkinList.includes(result.data[i].skinId)) {
                         noticeCount++;
                         noticeSkin += result.data[i].skinName + "、"
                         savedSkinList.push(result.data[i].skinId)
@@ -71,7 +73,7 @@ function initScript() {
             noticeSkin = noticeSkin.substring(0, noticeSkin.length - 1)
             $.log(`获取皮肤列表成功, 共${products.length}个皮肤`)
             body.products = products
-            $.log(`即将保存的皮肤列表${JSON.stringify(savedSkinList)}` )
+            $.log(`即将保存的皮肤列表${JSON.stringify(savedSkinList)}`)
             $.setdata(JSON.stringify(savedSkinList), `${ScriptIdentifier}_own_skin_id_list`)
             if (noticeCount > 0) {
                 $.msg(`此次额外为你获取${noticeCount}个皮肤`, "", noticeSkin.substring(0, noticeSkin.length - 1))
