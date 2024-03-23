@@ -33,12 +33,14 @@ function initScript() {
     $.log("savedSkinList->[" + savedSkinList + ']')
     if (('undefined' == typeof savedSkinList) || savedSkinList === '') {
         $.log("上次保存皮肤为空，开始获取皮肤信息")
-        if (('undefined' !== typeof products) && ('undefined' !== typeof products.length)) {
+        try {
             for (let i = 0; i < products.length; i++) {
                 if (!ownSkinList.includes(products[i].productId)) {
                     ownSkinList.push(products[i].productId);
                 }
             }
+        } catch (e) {
+            $.logErr("遍历已有皮肤信息异常",e)
         }
         savedSkinList = ownSkinList
         $.log("当前皮肤信息{}", JSON.stringify(ownSkinList))
