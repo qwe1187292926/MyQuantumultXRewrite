@@ -29,18 +29,21 @@ initScript()
 function initScript() {
     let body = JSON.parse(resp.body), products = body.products;
 
+    if (products == undefined) {
+        $.log("列表为空，开始初始化列表")
+        body = JSON.parse("{\"products\":[]}")
+        products = body.products
+    }
+
+
     let savedSkinList = $.getdata(`${ScriptIdentifier}_own_skin_id_list`)
     $.log("savedSkinList->[" + savedSkinList + ']')
     if (('undefined' == typeof savedSkinList) || savedSkinList === '') {
         $.log("上次保存皮肤为空，开始获取皮肤信息")
-        try {
-            for (let i = 0; i < products.length; i++) {
-                if (!ownSkinList.includes(products[i].productId)) {
-                    ownSkinList.push(products[i].productId);
-                }
+        for (let i = 0; i < products.length; i++) {
+            if (!ownSkinList.includes(products[i].productId)) {
+                ownSkinList.push(products[i].productId);
             }
-        } catch (e) {
-            $.logErr("遍历已有皮肤信息异常",e)
         }
         savedSkinList = ownSkinList
         $.log("当前皮肤信息{}", JSON.stringify(ownSkinList))
