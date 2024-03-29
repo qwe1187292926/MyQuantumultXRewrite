@@ -28,6 +28,8 @@ initScript()
 
 function initScript() {
     let body = JSON.parse(resp.body), products = body.products || [];
+    $.log(`body:${body}`)
+    $.log(`productList:${products}`)
 
     let savedSkinList = $.getdata(`${ScriptIdentifier}_own_skin_id_list`)
     $.log("savedSkinList->[" + savedSkinList + ']')
@@ -51,9 +53,14 @@ function initScript() {
     let noticeCount = 0, noticeSkin = '';
     getAllSkinList(res.headers, (result) => {
         if (result.success) {
+            $.log("获取到的全部皮肤列表{}", JSON.stringify(result.data))
             let idNum = products.length
+            $.log(products)
+            $.log(ownSkinList)
             for (let i = 0; i < result.data.length; i++) {
-                if (!products.includes(result.data[i].skinId)) {
+                $.log(products.includes(result.data[i].skinId))
+                $.log(ownSkinList.includes(result.data[i].skinId))
+                if (!products.includes(result.data[i].skinId) && !ownSkinList.includes(result.data[i].skinId)) {
                     let skin = {
                         id: idNum++,
                         seed: "",
