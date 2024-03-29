@@ -31,15 +31,16 @@ function initScript() {
     $.log(`body:${body}`)
     $.log(`productList:${products}`)
 
+    for (let i = 0; i < products.length; i++) {
+        if (!bannedSkinList.includes(products[i].productId)) {
+            bannedSkinList.push(products[i].productId);
+        }
+    }
+
     let savedSkinList = $.getdata(`${ScriptIdentifier}_own_skin_id_list`)
     $.log("savedSkinList->[" + savedSkinList + ']')
     if (('undefined' == typeof savedSkinList) || savedSkinList === '') {
         $.log("上次保存皮肤为空，开始获取皮肤信息")
-        for (let i = 0; i < products.length; i++) {
-            if (!bannedSkinList.includes(products[i].productId)) {
-                bannedSkinList.push(products[i].productId);
-            }
-        }
         savedSkinList = bannedSkinList
         $.log("当前皮肤信息{}", JSON.stringify(bannedSkinList))
     } else {
@@ -59,11 +60,11 @@ function initScript() {
             $.log(bannedSkinList)
             for (let i = 0; i < result.data.length; i++) {
                 $.log(result.data[i].skinId,!products.includes(result.data[i].skinId),!bannedSkinList.includes(result.data[i].skinId))
-                if (!products.includes(result.data[i].skinId) && !bannedSkinList.includes(result.data[i].skinId)) {
+                if (!bannedSkinList.includes(result.data[i].skinId)) {
                     let skin = {
                         id: idNum++,
                         seed: "",
-                        initTime: "1709220187",
+                        initTime: 1709220187,
                         count: 1,
                         productId: result.data[i].skinId,
                         type: 2,
