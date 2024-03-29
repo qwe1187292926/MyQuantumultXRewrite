@@ -22,7 +22,7 @@ const resp = isUndefined($response) ? null : $response;
 
 // 获取皮肤列表的客户端参数
 const clientVersion = "2.0.0.0", skinType = 28;
-let ownSkinList = ['vip', 'default']
+let bannedSkinList = ['vip', 'default']
 
 initScript()
 
@@ -36,12 +36,12 @@ function initScript() {
     if (('undefined' == typeof savedSkinList) || savedSkinList === '') {
         $.log("上次保存皮肤为空，开始获取皮肤信息")
         for (let i = 0; i < products.length; i++) {
-            if (!ownSkinList.includes(products[i].productId)) {
-                ownSkinList.push(products[i].productId);
+            if (!bannedSkinList.includes(products[i].productId)) {
+                bannedSkinList.push(products[i].productId);
             }
         }
-        savedSkinList = ownSkinList
-        $.log("当前皮肤信息{}", JSON.stringify(ownSkinList))
+        savedSkinList = bannedSkinList
+        $.log("当前皮肤信息{}", JSON.stringify(bannedSkinList))
     } else {
         try {
             savedSkinList = JSON.parse(savedSkinList)
@@ -56,11 +56,10 @@ function initScript() {
             $.log("获取到的全部皮肤列表{}", JSON.stringify(result.data))
             let idNum = products.length
             $.log(products)
-            $.log(ownSkinList)
+            $.log(bannedSkinList)
             for (let i = 0; i < result.data.length; i++) {
-                $.log(products.includes(result.data[i].skinId))
-                $.log(ownSkinList.includes(result.data[i].skinId))
-                if (!products.includes(result.data[i].skinId) && !ownSkinList.includes(result.data[i].skinId)) {
+                $.log(result.data[i].skinId,!products.includes(result.data[i].skinId),!bannedSkinList.includes(result.data[i].skinId))
+                if (!products.includes(result.data[i].skinId) && !bannedSkinList.includes(result.data[i].skinId)) {
                     let skin = {
                         id: idNum++,
                         seed: "",
