@@ -51,10 +51,13 @@ function initScript() {
     let noticeCount = 0, noticeSkin = '';
     getAllSkinList(res.headers, (result) => {
         if (result.success) {
+            let idNum = products.length
             for (let i = 0; i < result.data.length; i++) {
-                if (!ownSkinList.includes(result.data[i].skinId)) {
+                if (!products.includes(result.data[i].skinId)) {
                     let skin = {
+                        id: idNum++,
                         seed: "",
+                        initTime: "1709220187",
                         count: 1,
                         productId: result.data[i].skinId,
                         type: 2,
