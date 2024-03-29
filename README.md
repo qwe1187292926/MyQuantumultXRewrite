@@ -3,11 +3,6 @@ Moodji是一款弱化数据，强调情绪的健康管理软件。其中用户�
 
 Moodji is a health management software that weakens data and emphasizes emotions. Users can participate in the New Year's event to get the latest skin, but due to the limited time of the event, users can only get some skins, or they simply have not participated. This script is born to solve this problem, it can allow you to easily and losslessly obtain all the current skins.
 
-
-## News
-4月1号的新皮肤[花卉贴纸、熊猫呼呼、暹罗喵]，已可提前获取（3/29）。
-
-
 ## 预览
 ![image](https://github.com/qwe1187292926/MyQuantumultXRewrite/blob/feture-moodji-20240302/Moodji/readme/moodji_preview.png?raw=true)
 ![image](https://raw.githubusercontent.com/qwe1187292926/MyQuantumultXRewrite/feture-moodji-20240302/Moodji/readme/moodji_skin.png)
