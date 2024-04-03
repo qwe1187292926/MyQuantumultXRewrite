@@ -22,7 +22,7 @@ const resp = isUndefined($response) ? null : $response;
 
 // 获取皮肤列表的客户端参数
 const clientVersion = "2.0.0.0", skinType = 28;
-let bannedSkinList = ['vip', 'default']
+let bannedSkinList = ['product.moodji.skin.vip', 'product.moodji.skin.default']
 
 initScript()
 
