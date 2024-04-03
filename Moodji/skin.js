@@ -59,22 +59,22 @@ function initScript() {
             $.log(products)
             $.log(bannedSkinList)
             for (let i = 0; i < result.data.length; i++) {
-                $.log(result.data[i].skinId,!products.includes(result.data[i].skinId),!bannedSkinList.includes(result.data[i].skinId))
-                if (!bannedSkinList.includes(result.data[i].skinId)) {
+                $.log(result.data[i].productId,!products.includes(result.data[i].productId),!bannedSkinList.includes(result.data[i].productId))
+                if (!bannedSkinList.includes(result.data[i].productId)) {
                     let skin = {
                         id: idNum++,
                         seed: "",
                         initTime: 1709220187,
                         count: 1,
-                        productId: result.data[i].skinId,
+                        productId: result.data[i].productId,
                         type: 2,
                         expireTime: 2524607999
                     }
                     products.push(skin);
-                    if (!savedSkinList.includes(result.data[i].skinId)) {
+                    if (!savedSkinList.includes(result.data[i].productId)) {
                         noticeCount++;
                         noticeSkin += result.data[i].skinName + "、"
-                        savedSkinList.push(result.data[i].skinId)
+                        savedSkinList.push(result.data[i].productId)
                     }
                 }
             }
