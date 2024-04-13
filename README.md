@@ -14,12 +14,12 @@ First, you need to have QuantumultX / Surge, and then follow the instructions be
 
 QX:
 ```properties
-^https?:\/\/moodji.api.flowzland.com\/\/moodjiallinone\/v1\/getownproductlist url script-response-body https://raw.githubusercontent.com/qwe1187292926/MyQuantumultXRewrite/main/Moodji/skin.min.js
+^https?:\/\/moodji.api.flowzland.com\/[\/]?moodjiallinone\/v1\/getownproductlist url script-response-body https://raw.githubusercontent.com/qwe1187292926/MyQuantumultXRewrite/main/Moodji/skin.min.js
 ```
 
 Surge4 (我没有Surge4，所以不确定下面是否能正常使用) (I'm not sure if it doesn't work, I don't have a Surge4 account):
 ```properties
-http-response ^https?:\/\/moodji.api.flowzland.com\/\/moodjiallinone\/v1\/getownproductlist requires-body=1,script-path=https://raw.githubusercontent.com/qwe1187292926/MyQuantumultXRewrite/main/Moodji/skin.min.js
+http-response ^https?:\/\/moodji.api.flowzland.com\/[\/]?moodjiallinone\/v1\/getownproductlist requires-body=1,script-path=https://raw.githubusercontent.com/qwe1187292926/MyQuantumultXRewrite/main/Moodji/skin.min.js
 ```
 
 Surge & QX 
