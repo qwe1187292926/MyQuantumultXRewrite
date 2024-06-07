@@ -23,53 +23,15 @@ const resp = isUndefined($response) ? null : $response;
 initScript()
 
 function initScript() {
-    let body = JSON.parse(resp.body), products = body.products || [];
-    $.log(`body:${body}`)
+    let body = JSON.parse(resp.body);
+    $.log(`body:${resp.body}`)
     try {
         body.Policy.EnableContentDownloading = true
         body.Policy.EnableSubtitleDownloading = true
     } catch (e) {
-        $.error(e)
+        $.log(e)
     }
     $.done({body: JSON.stringify(body)});
-}
-
-function getAllSkinList(headers, callback) {
-    const body = `{"type":${skinType},"clientVersion":"${clientVersion}"}`;
-    const option = {
-        url: `https://moodji.api.flowzland.com//moodjiallinone/v1/getskinlist`,
-        headers: headers,
-        body: body,
-        timeout: 2000
-    };
-    $.post(option, (err, resp, data) => {
-        let result = {
-            success: true,
-            msg: "Success",
-            data: JSON.parse(data)
-        };
-
-        if (err) {
-            result.success = false;
-            result.msg = "获取皮肤列表失败";
-            result.data = err;
-        }
-
-        if (!result.data.hasOwnProperty("skinInfoList")) {
-            result.success = false;
-            result.msg = "获取皮肤列表失败";
-        } else {
-            result.data = result.data.skinInfoList;
-        }
-
-        if (!result.success) {
-            $.log(`Error:${JSON.stringify(result)}`);
-            $.msg("Error", result.msg, err);
-        }
-
-        callback(result);
-
-    })
 }
 
 function isUndefined(obj) {
