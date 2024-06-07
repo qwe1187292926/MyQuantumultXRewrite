@@ -13,85 +13,25 @@ http-response ^https?:\/\/moodji.api.flowzland.com\/\/moodjiallinone\/v1\/getown
 
 Surge & QX MITM = moodji.api.flowzland.com
 */
-const ScriptName = "Moodji获取全皮肤 v1.0";
-const ScriptIdentifier = "moodji_patch";
+const ScriptName = "Emby启用下载 v1.0";
+const ScriptIdentifier = "Emby enable download";
 const $ = new Env(ScriptName);
 
 const res = $request;
 const resp = isUndefined($response) ? null : $response;
-
-// 获取皮肤列表的客户端参数
-const clientVersion = "2.0.0.0", skinType = 28;
-let bannedSkinList = ['product.moodji.skin.vip', 'product.moodji.skin.default']
 
 initScript()
 
 function initScript() {
     let body = JSON.parse(resp.body), products = body.products || [];
     $.log(`body:${body}`)
-    $.log(`productList:${products}`)
-
-    for (let i = 0; i < products.length; i++) {
-        if (!bannedSkinList.includes(products[i].productId)) {
-            bannedSkinList.push(products[i].productId);
-        }
+    try {
+        body.Policy.EnableContentDownloading = true
+        body.Policy.EnableSubtitleDownloading = true
+    } catch (e) {
+        $.error(e)
     }
-
-    let savedSkinList = $.getdata(`${ScriptIdentifier}_own_skin_id_list`)
-    $.log("savedSkinList->[" + savedSkinList + ']')
-    if (('undefined' == typeof savedSkinList) || savedSkinList === '') {
-        $.log("上次保存皮肤为空，开始获取皮肤信息")
-        savedSkinList = bannedSkinList
-        $.log("当前皮肤信息{}", JSON.stringify(bannedSkinList))
-    } else {
-        try {
-            savedSkinList = JSON.parse(savedSkinList)
-        } catch (e) {
-            $.setdata("", `${ScriptIdentifier}_own_skin_id_list`)
-            $.logErr(e)
-        }
-    }
-    let noticeCount = 0, noticeSkin = '';
-    getAllSkinList(res.headers, (result) => {
-        if (result.success) {
-            $.log("获取到的全部皮肤列表{}", JSON.stringify(result.data))
-            let idNum = products.length
-            $.log(products)
-            $.log(bannedSkinList)
-            for (let i = 0; i < result.data.length; i++) {
-                $.log(result.data[i].productId,!products.includes(result.data[i].productId),!bannedSkinList.includes(result.data[i].productId))
-                if (!bannedSkinList.includes(result.data[i].productId)) {
-                    let skin = {
-                        id: idNum++,
-                        seed: "",
-                        initTime: 1709220187,
-                        count: 1,
-                        productId: result.data[i].productId,
-                        type: 2,
-                        expireTime: 2524607999
-                    }
-                    products.push(skin);
-                    if (!savedSkinList.includes(result.data[i].productId)) {
-                        noticeCount++;
-                        noticeSkin += result.data[i].skinName + "、"
-                        savedSkinList.push(result.data[i].productId)
-                    }
-                }
-            }
-            noticeSkin = noticeSkin.substring(0, noticeSkin.length - 1)
-            $.log(`获取皮肤列表成功, 共${products.length}个皮肤`)
-            body.products = products
-            $.log(`即将保存的皮肤列表${JSON.stringify(savedSkinList)}`)
-            $.setdata(JSON.stringify(savedSkinList), `${ScriptIdentifier}_own_skin_id_list`)
-            if (noticeCount > 0) {
-                $.msg(`此次额外为你获取${noticeCount}个皮肤`, "", noticeSkin.substring(0, noticeSkin.length - 1))
-            }
-            $.log(`皮肤列表: ${JSON.stringify(body)}`)
-            $.done({body: JSON.stringify(body)});
-        } else {
-            $.done({body: JSON.stringify(resp)});
-        }
-    });
+    $.done({body: JSON.stringify(body)});
 }
 
 function getAllSkinList(headers, callback) {
